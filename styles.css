@@ -8,7 +8,7 @@
 }
 
 body {
-  background: url("/Assets/background.jpg") center 55% / cover no-repeat fixed; /* Full-screen background image */
+  background: url("Assets/background.jpg") center 55% / cover no-repeat fixed; /* Full-screen background image */
   font-family: "Rethink Sans", sans-serif; /* Global font */
   color: #f2e3d5; /* Light beige text color */
   height: 100vh; /* Full viewport height */
