@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap");
+
+/* ---------- Base ---------- */
+* {
+  margin: 0; /* Remove all default margins */
+  padding: 0; /* Remove all default paddings */
+  box-sizing: border-box; /* Include padding & border in total width/height */
+}
+
+body {
+  background: url("/source/background.jpg") center 55% / cover no-repeat fixed; /* Full-screen background image */
+  font-family: "Rethink Sans", sans-serif; /* Global font */
+  color: #f2e3d5; /* Light beige text color */
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Disable page scroll */
+  display: flex; /* Use flex for vertical layout */
+  flex-direction: column; /* Stack hero and cards vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically as a group */
+  gap: 1.5rem; /* Space between hero and cards */
+  position: relative; /* Needed for ::before overlay */
+}
+
+body::before {
+  content: ""; /* Create a dark overlay */
+  position: absolute; /* Cover entire body */
+  inset: 0; /* Top, right, bottom, left = 0 */
+  background: rgba(0, 0, 0, 0.6); /* Transparent black overlay */
+  z-index: 0; /* Behind all content */
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  z-index: 2; /* Above overlay */
+  text-align: center; /* Center text inside hero */
+  display: flex; /* Flexbox to arrange content vertically */
+  padding: 16px; /* Space around hero content */
+  flex-direction: column; /* Stack heading, paragraph, and button */
+  justify-content: center; /* Center content vertically inside hero */
+}
+
+/* Make sure h1 and p are centered */
+.hero-content {
+  text-align: center; /* Center text horizontally */
+}
+
+.hero-content h1 {
+  font-size: 50px; /* Big title */
+  font-weight: 700; /* Bold title */
+}
+
+.hero-content p {
+  font-size: 24px; /* Subtitle size */
+  line-height: 1.4; /* Better readability */
+}
+
+/* ---------- Button ---------- */
+.Ebutton {
+  margin-top: 1.5rem; /* Space above button */
+  margin-left: auto; /* Center button horizontally */
+  margin-right: auto; /* Center button horizontally */
+  padding: 10px 16px; /* Internal padding */
+  background: linear-gradient(100deg, #012e40 0%, #049dbf 100%); /* Gradient background */
+  color: #f2e3d5; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  font-size: 20px; /* Text size */
+  width: 239px; /* Fixed width */
+  display: flex; /* Center content inside */
+  align-items: center; /* Vertical center inside */
+  justify-content: center; /* Horizontal center inside */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover animation */
+  line-height: normal; /* Prevent tall text spacing */
+}
+
+.Ebutton:hover {
+  transform: translateY(-3px); /* Lift button slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add soft shadow */
+}
+
+.Ebutton i {
+  margin-left: 8px; /* Space between text and icon */
+}
+
+/* ---------- Cards Section ---------- */
+.allcards {
+  display: flex; /* Align cards in a row */
+  justify-content: center; /* Center horizontally */
+  align-items: flex-end; /* Align cards bottom edge together */
+  gap: 4rem; /* Space between cards */
+  z-index: 2; /* Above overlay */
+  padding: 16px; /* Inner spacing */
+  position: relative; /* Allow vertical shift */
+  top: 5%; /* Move cards slightly lower without moving hero */
+}
+
+.cards {
+  background: rgba(255, 255, 255, 0.11); /* Transparent white background */
+  color: #f2e3d5; /* Text color */
+  border-radius: 12px; /* Rounded corners */
+  width: 220px; /* Card width */
+  height: 200px; /* Card height */
+  padding: 16px; /* Inner space */
+  text-align: center; /* Center text */
+  display: flex; /* Flex to center elements inside */
+  flex-direction: column; /* Stack icon, title, and text vertically */
+  align-items: center; /* Horizontal center */
+  justify-content: flex-start; /* Start items from top */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Soft outer shadow */
+  backdrop-filter: blur(5px); /* Glass effect */
+  transition: all 0.3s ease; /* Smooth hover transition */
+}
+
+.cards:hover {
+  box-shadow: 0 12px 40px #024959; /* Stronger glow on hover */
+}
+
+.cards h4 {
+  font-size: 36px; /* Big number or symbol */
+  margin-top: 7%; /* Space from top */
+  font-weight: bold; /* Bold heading */
+  opacity: 0.8; /* Slight transparency for soft look */
+}
+
+.cards h3 {
+  font-size: 25px; /* Subtitle size */
+  opacity: 0.8; /* Soft color */
+  line-height: 1.2; /* Compact spacing */
+  font-weight: 300; /* Light text */
+}
+
+/* ---------- Icons ---------- */
+.icons {
+  background: linear-gradient(45deg, #012e40 0%, #049dbf 100%); /* Gradient box for icon */
+  width: 48px; /* Icon container width */
+  height: 48px; /* Icon container height */
+  border-radius: 8px; /* Rounded edges */
+  display: flex; /* Center icon inside */
+  align-items: center; /* Vertical center */
+  justify-content: center; /* Horizontal center */
+  margin-bottom: 10px; /* Space below icon */
+  transition: transform 0.15s ease; /* Small scale animation */
+}
+
+.icons:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+footer {
+  color: #ffffff;
+  display: flex;
+  z-index: 2; /* Above overlay */
+  position: relative; /* Needed for proper layering */
+  top: 15%;
+  text-align: center; /* Center text inside footer */
+  padding: 8px; /* Space around footer content */
+  font-size: 20px; /* Smaller text size */
+  opacity: 1; /* Slightly transparent */
+}
+footer span {
+  font-weight: normal; /* Normal weight for span */
+}
+
+/* ---------- Responsive Design ---------- */
+@media screen and (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 36px; /* Smaller title for phones */
+  }
+
+  .hero-content p {
+    font-size: 18px; /* Smaller paragraph */
+  }
+
+  .Ebutton {
+    width: 200px; /* Narrower button */
+    font-size: 16px; /* Smaller text */
+    padding: 8px 16px; /* Smaller padding */
+  }
+
+  .allcards {
+    flex-wrap: wrap; /* Cards go to new line if needed */
+    gap: 1rem; /* Smaller gaps */
+  }
+
+  .cards {
+    width: 180px; /* Smaller card width */
+    height: 160px; /* Smaller card height */
+  }
+
+  .cards h4 {
+    font-size: 22px; /* Smaller text */
+  }
+
+  .cards h3 {
+    font-size: 18px; /* Smaller subtitle */
+  }
+  footer {
+    font-size: 16px; /* Smaller footer text */
+    top: 5%;
+  }
+}
+@media screen and (max-width: 390px) {
+  body {
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: auto; /* Allow content to determine height */
+  }
+  .hero-content h1 {
+    font-size: 36px; /* Smaller title for phones */
+  }
+
+  .hero-content p {
+    font-size: 18px; /* Smaller paragraph */
+  }
+
+  .Ebutton {
+    width: 200px; /* Narrower button */
+    font-size: 16px; /* Smaller text */
+    padding: 8px 16px; /* Smaller padding */
+  }
+
+  .allcards {
+    flex-wrap: wrap; /* Cards go to new line if needed */
+    gap: 1rem; /* Smaller gaps */
+  }
+
+  .cards {
+    width: 180px; /* Smaller card width */
+    height: 160px; /* Smaller card height */
+  }
+
+  .cards h4 {
+    font-size: 22px; /* Smaller text */
+  }
+
+  .cards h3 {
+    font-size: 18px; /* Smaller subtitle */
+  }
+}
+/* ---------- Layout Adjustments ---------- */
