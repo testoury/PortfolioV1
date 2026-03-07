@@ -8,7 +8,7 @@
 }
 
 body {
-  background: url("Assets/background.webp") center 55% / cover no-repeat fixed; /* Full-screen background image */
+  background: url("../Assets/background.webp") center 55% / cover no-repeat fixed; /* Full-screen background image */
   font-family: "Rethink Sans", sans-serif; /* Global font */
   color: #f2e3d5; /* Light beige text color */
   height: 100vh; /* Full viewport height */
@@ -29,6 +29,95 @@ body::before {
   z-index: 0; /* Behind all content */
 }
 
+/* ---------- NavBar ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 50px;
+  width: 100%;
+  background: #012e404b; /* Solid background for better readability */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  position: absolute;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  text-shadow: black 0.1em 0.1em 0.2em; /* Subtle shadow for better visibility */
+}
+
+.logo-name {
+  font-weight: 800;
+  font-size: 15px;
+  color: #ffffff;
+  letter-spacing:1.5px;
+}
+
+.logo-sub {
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.10px;
+  ;
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: 10%;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.822);
+  padding: 6px 4px;
+  margin: 0 17px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: rgba(255, 255, 255, 0.966);
+  transform: translateY(-3px);
+
+}
+
+/* Active link */
+.nav-links a.active {
+  color: #ffffff;
+  font-weight: 600;
+  border-bottom: 2px solid #049DBF;
+}
+
+/* CTA Button */
+.nav-cta {
+  text-decoration: none;
+  background: linear-gradient(135deg, #024959, #3ca6a6);
+  border-radius: 8px;
+  padding: 6px 35px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 16px rgba(60, 166, 166, 0.3);
+  transition: all 0.2s ease;
+}
+
+.nav-cta:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+/* ---------- NavBar ---------- */
 /* ---------- Hero Section ---------- */
 .hero {
   z-index: 2; /* Above overlay */
@@ -163,6 +252,15 @@ footer span {
 
 /* ---------- Responsive Design ---------- */
 @media screen and (max-width: 768px) {
+body::before {
+  content: ""; /* Create a dark overlay */
+  position: absolute; /* Cover entire body */
+  inset: 0; /* Top, right, bottom, left = 0 */
+  background: rgba(0, 0, 0, 0.6); /* Transparent black overlay */
+  z-index: 0; /* Behind all content */
+  width: 100%; /* Ensure overlay covers full width */
+  height: 100%; /* Ensure overlay covers full height */
+}
   .hero-content h1 {
     font-size: 36px; /* Smaller title for phones */
   }
@@ -198,12 +296,23 @@ footer span {
     font-size: 16px; /* Smaller footer text */
     top: 5%;
   }
+  
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 410px) {
   body {
     overflow-y: auto; /* Enable vertical scrolling */
-    height: auto; /* Allow content to determine height */
+    height: 100%; /* Full viewport height */
   }
+  body::before {
+  content: ""; /* Create a dark overlay */
+  position: absolute; /* Cover entire body */
+  inset: 0; /* Top, right, bottom, left = 0 */
+  background: rgba(0, 0, 0, 0.6); /* Transparent black overlay */
+  z-index: 0; /* Behind all content */
+  width: 100%; /* Ensure overlay covers full width */
+  height: 100%; /* Ensure overlay covers full height */
+}
+
   .hero-content h1 {
     font-size: 36px; /* Smaller title for phones */
   }
